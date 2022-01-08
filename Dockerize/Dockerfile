@@ -7,8 +7,6 @@ COPY . ./
 # install opencv dependencies
 RUN apt-get update && \
 	apt-get install -y python3-opencv
-#	apt-get install -y libgl1-mega-glx
-#	ffmpeg libsm6 libxext6 libxrender-dev 
 
 # install necessary packages
 RUN pip install --upgrade pip \
