@@ -67,6 +67,7 @@ def textify(y, labels):
     text_label = str(percent) + 2*" " + labels[np.argmax(y)]
     return text_label, text_color
 
+
 if __name__ == '__main__':
 
     # read command line arguments
@@ -76,7 +77,7 @@ if __name__ == '__main__':
     parser.add_argument("-m", "--model", help="Path to the model")
     args = parser.parse_args()
     
-    source = args.source if args.source else os.path.join(os.getcwd(), 'data', 'sample.mp4')
+    source = args.source if args.source else os.path.join(os.getcwd(), 'data', '2.mp4')
     label_file = args.labelpath if args.labelpath else os.path.join(os.getcwd(), 'data', 'imagenet_slim_labels.txt')
     model_file = args.model if args.model else os.path.join(os.getcwd(), 'data', 'inception_v3_2016_08_28_frozen.pb')
 
@@ -99,9 +100,6 @@ if __name__ == '__main__':
     input_operation = graph.get_operation_by_name(input_name)
     output_operation = graph.get_operation_by_name(output_name)
 
-    # create session
-    sess = tf.compat.v1.Session(graph=graph)
-
     # Read labels
     labels = load_labels(label_file)
 
@@ -109,7 +107,7 @@ if __name__ == '__main__':
     H = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     W = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-            
+
     for frame_idx in range(total_frames):
         ret, frame = cap.read()
         x = read_tensor_from_image_file(
@@ -118,8 +116,9 @@ if __name__ == '__main__':
             input_width=input_width,
             input_mean=input_mean,
             input_std=input_std)
-
-        results = sess.run(output_operation.outputs[0], {
+    
+        with tf.compat.v1.Session(graph=graph) as sess:
+            results = sess.run(output_operation.outputs[0], {
                 input_operation.outputs[0]: x
             })
 
