@@ -67,7 +67,6 @@ def textify(y, labels):
     text_label = str(percent) + 2*" " + labels[np.argmax(y)]
     return text_label, text_color
 
-
 if __name__ == '__main__':
 
     # read command line arguments
@@ -100,6 +99,9 @@ if __name__ == '__main__':
     input_operation = graph.get_operation_by_name(input_name)
     output_operation = graph.get_operation_by_name(output_name)
 
+    # create session
+    sess = tf.compat.v1.Session(graph=graph)
+
     # Read labels
     labels = load_labels(label_file)
 
@@ -107,7 +109,7 @@ if __name__ == '__main__':
     H = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     W = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-
+            
     for frame_idx in range(total_frames):
         ret, frame = cap.read()
         x = read_tensor_from_image_file(
@@ -117,8 +119,7 @@ if __name__ == '__main__':
             input_mean=input_mean,
             input_std=input_std)
 
-        with tf.compat.v1.Session(graph=graph) as sess:
-            results = sess.run(output_operation.outputs[0], {
+        results = sess.run(output_operation.outputs[0], {
                 input_operation.outputs[0]: x
             })
 
