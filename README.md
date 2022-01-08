@@ -2,8 +2,8 @@
 # Video frame Classifier
 ![video](https://user-images.githubusercontent.com/50489165/148655338-95f55a13-f42c-4d3a-b7c4-6c5b7d52ea19.gif)
 
-### docker pull dheerajmadda/videoframeclassifier
-### docker run -p 8080:8080 dheerajmadda/videoframeclassifier
+#### docker pull dheerajmadda/videoframeclassifier
+#### docker run -p 8080:8080 dheerajmadda/videoframeclassifier
 
 
 
