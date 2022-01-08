@@ -1,7 +1,10 @@
 
 # Video frame Classifier
 ![video](https://user-images.githubusercontent.com/50489165/148655338-95f55a13-f42c-4d3a-b7c4-6c5b7d52ea19.gif)
+
+### docker pull dheerajmadda/videoframeclassifier
 ### docker run -p 8080:8080 dheerajmadda/videoframeclassifier
+
 
 
 ###  Description
@@ -36,13 +39,13 @@ python3 alternate_solution.py -s data/sample.mp4 -l data/imagenet_slim_labels.tx
 python3 alternate_solution.py -s  <video_path> -l <label_path> -w <weights_path>
 
 
-## Want to build an image ? Run as a container
+## Want to build an image? 
 
 1) Clone the repo -> cd Dockerize
 2) Download: https://github.com/fchollet/deep-learning-models/releases/download/v0.5/inception_v3_weights_tf_dim_ordering_tf_kernels.h5 and move it into the data folder (i.e. Dockerize/data/)
 3) docker build -t <image_name> .
 
 #### Run as a container
-docker run -p 8080:8080 <image_name>
+😊 docker run -p 8080:8080 <image_name>
 
 
