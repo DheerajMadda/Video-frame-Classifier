@@ -43,7 +43,9 @@ class Model:
 def read_label(labelpath):
     with open(labelpath) as f:
         lines = f.readlines()
-    return [l.strip() for l in lines]
+    labels = [l.strip() for l in lines]
+    labels.remove("dummy")
+    return labels
 
 def draw_frame(frame, text_label, text_color):
     # put text
