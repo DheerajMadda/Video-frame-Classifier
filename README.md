@@ -1,5 +1,6 @@
 
 # Video frame Classifier
+![video](https://user-images.githubusercontent.com/50489165/148655338-95f55a13-f42c-4d3a-b7c4-6c5b7d52ea19.gif)
 
 The aim of this project is to take a video as an input and to display the classified label with confidence (in percentage).
 
