@@ -1,5 +1,5 @@
 FROM python:3.8-slim-buster
-LABEL maintainer "Dheeraj Madda <dheerajmadda@gmail.com>"
+LABEL maintainer "Dheeraj"
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
