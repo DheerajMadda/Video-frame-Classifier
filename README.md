@@ -48,4 +48,5 @@ python3 alternate_solution.py -s  <video_path> -l <label_path> -w <weights_path>
 #### Run as a container
 😊 docker run -p 8080:8080 <image_name>
 
-
+#### You will see the following Streamlit application 🙌
+![Screenshot (65)](https://user-images.githubusercontent.com/50489165/148655990-e5c2e66b-a708-4c5f-b057-94ffb3f297c7.png)
