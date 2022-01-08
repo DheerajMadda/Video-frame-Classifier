@@ -4,7 +4,7 @@
 The aim of this project is to take a video as an input and to display the classified label with confidence (in percentage).
 
 ###  Description
-Make sue you have necessary libraries installed :- opencv-python, numpy, tensorflow
+Make sure you have necessary libraries installed :- opencv-python, numpy, tensorflow
 
 There are 2 solutions that are implemented using different approaches.
 
